@@ -28,35 +28,96 @@
 
 
     <style>
-        .signin {
-            border: 1px solid black;
-            text-decoration: none;
-            background-color: white;
-            border-radius: 3px;
-            padding: 2px;
-            color: red;
-            margin-right: 0px;
+        
+
+
+        /* [ON BIG SCREEN] */
+
+        /* (A) WRAPPER */
+        #hamnav {
+            width: 100%;
+            background: #000;
+            position: sticky;
+            top: 0;
+            
+
         }
 
-        .nav {
-            text-decoration: none;
-            color: black;
-            margin-left:3px
+        /* (B) HORIZONTAL MENU ITEMS */
+        #hamitems {
+            display: flex;
+            align-items: center;
+            padding-left: 5px;
+            padding-right: 5px;
+            height: 100%;
         }
 
-        .nav:hover {
-            color: red;
-        }
+        #hamitems a {
+            flex-grow: 1;
+            flex-basis: 0;
+            padding: 20px;
+           
 
-        .signin:hover {
-            background-color: red;
             color: white;
             text-decoration: none;
+            text-align: center;
+            align-items: center;
         }
 
-        .navbar-brand {
-            padding-left: 0px;
+        .btn:hover {
+            background: red;
         }
+
+        /* (C) HIDE HAMBURGER */
+        #hamnav label,
+        #hamburger {
+            display: none;
+        }
+
+
+
+
+
+        /* [ON SMALL SCREENS] */
+
+        @media screen and (max-width: 768px) {
+
+            /* (A) BREAK INTO VERTICAL MENU */
+            #hamitems a {
+                box-sizing: border-box;
+                display: block;
+                width: 100%;
+                border-top: 1px solid #333;
+            }
+
+            .logo {
+                display: none;
+            }
+
+            /* (B) SHOW HAMBURGER ICON */
+            #hamnav label {
+                display: inline-block;
+                color: white;
+                background: red;
+                font-style: normal;
+                font-size: 1.2em;
+                padding: 10px;
+            }
+
+            /* (C) TOGGLE SHOW/HIDE MENU */
+            #hamitems {
+                display: none;
+            }
+
+            #hamnav input:checked~#hamitems {
+                display: block;
+            }
+        }
+
+
+
+
+
 
 
         #intro p {
@@ -87,7 +148,7 @@
             background-color: red;
             color: white;
             font-size: 1rem;
-            margin: 5px;
+            margin: 10px;
             padding: 10px;
             text-decoration: none;
 
@@ -121,8 +182,9 @@
         }
 
         .offs {
-            
+
             width: 60%;
+            /* position: absolute; */
             height: 350px;
             margin-left: auto;
             margin-right: auto;
@@ -130,68 +192,85 @@
             box-shadow: 3px 10px 20px black;
             color: black;
             text-shadow: 2px 5px 20px grey;
-            
-            
+
+
 
 
         }
 
-       
+
         #off1 {
-            position: relative;
+
             background: url(img/baked-chicken-wings.jpg);
-            
+
             background-size: cover;
             background-repeat: no-repeat;
         }
 
 
         #off2 {
-            position: relative;
+
             background: url(img/buttermilk-fried-chicken-drumsticks_165536-1276.jpg);
             background-size: cover;
             background-repeat: no-repeat;
         }
 
         #off3 {
-            position: relative;
+
             background: url(img/286450-food-lunch-hamburgers-burgers.jpg);
             background-size: cover;
             background-repeat: no-repeat;
         }
 
         #off4 {
-            position: relative;
+
             background: url(img/rice.png);
             background-size: cover;
             background-repeat: no-repeat;
         }
 
         #off5 {
-            position: relative;
+
             background: url(img/Nugget_Combo_10_Reg_web_mobile.jpg);
             background-size: cover;
             background-repeat: no-repeat;
         }
 
         #off6 {
-            position: relative;
+
             background: url(img/pepsi.png);
             background-size: cover;
             background-repeat: no-repeat;
         }
 
 
-        .paras {
-            position: relative;
-            font-size: smaller;
-         
-            
+
+        @media screen and (max-width:400px) {
+            .paras {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media screen and (min-width:401px) {
+            .paras {
+                font-size: 1rem;
+            }
+        }
+
+
+        .title {
+
+
+            font-size: 1.5rem;
+            padding-top: 10px;
+
+
+
 
         }
 
-        
-      
+
+
 
 
         .footer-basic {
@@ -238,15 +317,30 @@
 <body>
 
 
-    <!-- navbar -->
-    <nav class="navbar sticky-top navbar-light bg-light">
-        <a class="navbar-brand" href="#"> <img src="img/logo.png" alt="logo" width="50" height="50"></a>
-        <a class="nav" href="index.html">Home</a>
-        <a class="nav" href="menu.html">Menu</a>
-        <a class="nav" href="offers.html">Offers</a>
-        <a class="nav" href="about.html">About Us</a>
-        <a class="signin" href="signin.html">Sign In</a>
+   
+
+    <!-- New Navbar with Hamburger icon -->
+
+
+    <!-- (A) MENU WRAPPER -->
+    <nav id="hamnav">
+        <!-- (B) THE HAMBURGER -->
+        <label for="hamburger">&#9776;</label>
+        <input type="checkbox" id="hamburger" />
+
+        <!-- (C) MENU ITEMS -->
+
+        <div id="hamitems">
+            <a class="logo" href="#"> <img src="img/logo.png" alt="logo" width="50" height="50"></a>
+            <a href="index.html" class="btn">Home</a>
+            <a href="menu.html" class="btn">Menu</a>
+            <a href="offers.html" class="btn">Offers</a>
+            <a href="about.html" class="btn">About us</a>
+            <a href="signin.html" class="btn">Sign In</a>
+        </div>
+
     </nav>
+
 
     <!-- Image carousel -->
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
@@ -330,37 +424,42 @@
 
 
     <div class="container-fluid offs" id="off1">
-        
-        <h5>Chicken Wings</h5>
+
+        <h5 class="title">Chicken Wings</h5>
         <p class="paras">If there's one thing a chicken lover cannot ever resist, it is a bucket of hot and crispy
             chicken wings! And if you are reading this, perhaps you are love them too! Picture your favourite chicken
             wings, sauteed in spices and sauces or fried to perfection, aren't you slurping already?</p>
-            
+
     </div>
 
     <div class="container-fluid offs" id="off2">
-        <h5>Chicken Drumsticks</h5>
-        <p class="paras">Fried and crispy chicken drumsticks are something to die for.This is one of the most ordered items in our stores.Just even thinking about having a bite out of it will fill your mouth with water....</p>
+        <h5 class="title">Chicken Drumsticks</h5>
+        <p class="paras">Fried and crispy chicken drumsticks are something to die for.This is one of the most ordered
+            items in our stores.Just even thinking about having a bite out of it will fill your mouth with water....</p>
     </div>
 
     <div class="container-fluid offs" id="off3">
-        <h5>Burgers</h5>
-        <p class="paras">Juicy,delicious,filled with cheese,veggies,chicken,mayo.....bet you just got a crave for burgers.Burgers with various filling and flavour combinations are made by us.</p>
+        <h5 class="title">Burgers</h5>
+        <p class="paras">Juicy,delicious,filled with cheese,veggies,chicken,mayo.Bet you just got a crave for
+            burgers.Burgers with various filling and flavour combinations are made by us.</p>
     </div>
 
     <div class="container-fluid offs" id="off4">
-        <h5>Rice Bowls</h5>
-        <p class="paras">There is nothing more filling in this world than a bowl of rice.And if it is loaded with veggies and chicken pops.....it just gets better.</p>
+        <h5 class="title">Rice Bowls</h5>
+        <p class="paras">There is nothing more filling in this world than a bowl of rice.And if it is loaded with
+            veggies and chicken pops.....it just gets better.</p>
     </div>
 
     <div class="container-fluid offs" id="off5">
-        <h5>Fries & Nuggets</h5>
-        <p class="paras">Who doesn't like fries? From kids to adults everyone loves fries.And with a combination with some chicken nuggets....it is just awesome.</p>
+        <h5 class="title">Fries & Nuggets</h5>
+        <p class="paras">Who doesn't like fries? From kids to adults everyone loves fries.And with a combination with
+            some chicken nuggets....it is just awesome.</p>
     </div>
 
     <div class="container-fluid offs" id="off6">
-        <h5>Beveraages</h5>
-        <p class="paras">A sip of chilled coke after the hotness of your spicy chicken wings just can't be expressed in mere words.All varieties of coke are available with us....</p>
+        <h5 class="title">Beverages</h5>
+        <p class="paras">A sip of chilled coke after the hotness of your spicy chicken wings just can't be expressed in
+            mere words.All varieties of coke are available with us....</p>
     </div>
 
 
